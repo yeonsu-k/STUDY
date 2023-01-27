@@ -26,10 +26,8 @@ public class B2503숫자야구 {
     int result = 0;
     for (int i = 1; i <= 9; i++) {
       for (int j = 1; j <= 9; j++) {
-        if (i == j) continue; // 백의자리 == 십의자리 경우 continue
         for (int k = 1; k <= 9; k++) {
-          if (i == k) continue; // 백의자리 == 일의자리 경우 continue
-          if (j == k) continue; // 십의자리 == 일의자리 경우 continue
+          if (i == j || i == k || j==k) continue; // 각 자릿수가 중복일 경우
 
           int count = 0;
           for (int m = 0; m < N; m++) {
