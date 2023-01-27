@@ -3,7 +3,7 @@ import java.util.*;
 
 public class B2503숫자야구 {
   public static void main(String[] args) throws Exception {
-    System.setIn(new FileInputStream("input.txt"));
+    //System.setIn(new FileInputStream("input.txt"));
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     // 입력
