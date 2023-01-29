@@ -1,4 +1,3 @@
-package a2023;
 import java.io.*;
 import java.util.*;
 
