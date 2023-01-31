@@ -1,9 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-/*
- * 출력 : 호석이가 반전시킬 LED를 고를 수 있는 경우의 수
- */
 public class B22251빌런호석 {
   static int N, K, P, X;
   static int[][] display = {
@@ -21,9 +18,8 @@ public class B22251빌런호석 {
   static int count = 0;
 
   public static void main(String[] args) throws Exception {
-    System.setIn(new FileInputStream("index.txt"));
+    //System.setIn(new FileInputStream("index.txt"));
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
     StringTokenizer st = new StringTokenizer(br.readLine(), " ");
     N = Integer.parseInt(st.nextToken()); // 엘리베이터 최고층 수
     K = Integer.parseInt(st.nextToken()); // 디스플레이에 최대 표시 가능한 자리수
@@ -32,11 +28,9 @@ public class B22251빌런호석 {
 
     int[] x_digit = numTodigit(X);
     for (int i = 1; i <= N; i++) {
-      if (i == X)
-        continue; // 현재층 제외 반복
+      if (i == X) continue; // 현재층 제외 반복
       if (changeNum(i, x_digit)) count++;
     }
-    
     System.out.println(count);
   }
 
