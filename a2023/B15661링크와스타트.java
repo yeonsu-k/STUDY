@@ -31,7 +31,7 @@ public class B15661링크와스타트 {
   }
 
   private static void setTeam(int cnt) {
-    if (min == 0) return;
+    if (min == 0) return; // 처리시간 절반 줄어듬
     if (cnt == N) {
       level();
       return;
