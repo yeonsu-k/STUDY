@@ -74,7 +74,7 @@ public class B16939 {
 
     // 셋 중 하나만 true 일 때
     if (setting[0] ^ setting[1] ^ setting[2]) {
-      type = setting[0] ? "lenth" : setting[1] ? "width" : "side";
+      type = setting[0] ? "length" : setting[1] ? "width" : "side";
     }
 
     return type;
