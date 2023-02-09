@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class B16943숫자재배지 {
+public class B16943숫자재배치 {
   static int[] A;
   static int B, result = -1;
 
