@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class B16939 {
+public class B16939_222큐브 {
   static int[] cube = new int[25];
 
   public static void main(String[] args) throws Exception {
