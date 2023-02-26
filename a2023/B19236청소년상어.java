@@ -55,7 +55,6 @@ public class B19236청소년상어 {
     int[][] copyMap = new int[N][N];
     for (int i = 0; i < map.length; i++) {
       copyMap[i] = map[i].clone();
-      // System.arraycopy(map[i], 0, copyMap[i], 0, map.length);
     }
     Fish[] copyFish = new Fish[fish.length];
     for (int i = 1; i < fish.length; i++) {
