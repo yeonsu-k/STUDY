@@ -16,7 +16,8 @@ public class B13023ABCDE {
     M = Integer.parseInt(st.nextToken()); // 친구 관계의 수
 
     list = new ArrayList[N];
-    for (int i = 0; i < N; i++) list[i] = new ArrayList<Integer>();
+    for (int i = 0; i < N; i++)
+      list[i] = new ArrayList<Integer>();
 
     for (int i = 0; i < M; i++) {
       st = new StringTokenizer(br.readLine());
@@ -29,7 +30,8 @@ public class B13023ABCDE {
     visit = new boolean[N];
     for (int i = 0; i < N; i++) {
       dfs(i, 1);
-      if (result) break;
+      if (result)
+        break;
     }
 
     System.out.print(result ? 1 : 0);
@@ -43,7 +45,8 @@ public class B13023ABCDE {
 
     visit[start] = true;
     for (int next : list[start]) {
-      if (!visit[next]) dfs(next, cnt + 1);
+      if (!visit[next])
+        dfs(next, cnt + 1);
     }
     visit[start] = false;
   }

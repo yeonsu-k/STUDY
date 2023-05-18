@@ -26,8 +26,10 @@ public class B1759암호만들기 {
       for (int i = 0; i < C; i++) {
         if (visit[i]) {
           result += alphabet[i];
-          if ("aeiou".contains(alphabet[i])) vo++;
-          else co++;
+          if ("aeiou".contains(alphabet[i]))
+            vo++;
+          else
+            co++;
         }
       }
 
