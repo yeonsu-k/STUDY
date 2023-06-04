@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+// stack
+
 public class B4949균형잡힌세상 {
   public static void main(String[] args) throws IOException {
     System.setIn(new FileInputStream("input.txt"));
@@ -10,28 +12,26 @@ public class B4949균형잡힌세상 {
     String str;
     while (!(str = br.readLine()).equals(".")) {
       Stack<Character> stack = new Stack<>();
-      str = str.replaceAll("[^\\[\\]\\(\\)]", "");
-      boolean pass = false;
       char[] ch = str.toCharArray();
       for (char c : ch) {
         if (c == '(' || c == '[')
           stack.add(c);
-        else if (stack.size() == 0)
-          pass = true;
-        else if (c == ')' || c == ']') {
-          char temp = stack.pop();
-          if (temp != (c == ')' ? '(' : '[')) {
-            pass = true;
-            break;
+        else if ((c == ')' || c == ']')) {
+          if (stack.isEmpty())
+            stack.add(c);
+          else {
+            char temp = stack.pop();
+            if (temp != (c == ')' ? '(' : '[')) {
+              stack.add(c);
+            }
           }
         }
       }
 
-      if (!pass && stack.size() == 0)
+      if (stack.size() == 0)
         sb.append("yes\n");
       else
         sb.append("no\n");
-
     }
 
     System.out.print(sb);
