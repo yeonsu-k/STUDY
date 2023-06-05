@@ -12,10 +12,8 @@ public class B1107리모콘B {
   public static void main(String[] args) throws IOException {
     // System.setIn(new FileInputStream("input.txt"));
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
     N = Integer.parseInt(br.readLine()); // 이동할 채널 번호
     length = String.valueOf(N).length(); // 이동할 채널 번호 길이
-
     M = Integer.parseInt(br.readLine()); // 고장난 버튼의 개수
     list = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)); // 사용가능한 번호 리스트
 
