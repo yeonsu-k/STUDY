@@ -3,16 +3,6 @@ import java.util.*;
 
 public class B9019DSLR {
 
-  static class DSLR {
-    String type;
-    int num;
-
-    DSLR(String t, int n) {
-      this.type = t;
-      this.num = n;
-    }
-  }
-
   public static void main(String[] args) throws IOException {
     // System.setIn(new FileInputStream("input.txt"));
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
