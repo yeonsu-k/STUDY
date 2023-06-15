@@ -47,7 +47,6 @@ public class B9019DSLR {
     }
 
     return null;
-
   }
 
   private static int calcN(int i, int now) {
