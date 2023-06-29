@@ -7,22 +7,18 @@ public class B5525IOIOI {
     int N = Integer.parseInt(br.readLine());
     int M = Integer.parseInt(br.readLine());
     char str[] = br.readLine().toCharArray();
-    int result = 0;
-    int count = 0;
 
+    int cnt = 0, res = 0;
     for (int i = 0; i < M - 2; i++) {
       if (str[i] == 'I' && str[i + 1] == 'O' && str[i + 2] == 'I') {
-        count++;
-        i++; // 다음 'O' 위치에서 탐색
-        if (count == N) {
-          count--; // 겹쳐지는 부분 IOIOI => IOI 2개
-          result++;
-        }
-      } else { // 겹쳐지 않을 경우
-        count = 0;
-      }
+        cnt++;
+        i++; // 다음 'I' 위치에서 탐색
+      } else
+        cnt = 0; // 겹쳐지 않을 경우
+      if (cnt >= N)
+        res++;
     }
 
-    System.out.print(result);
+    System.out.print(res);
   }
 }
