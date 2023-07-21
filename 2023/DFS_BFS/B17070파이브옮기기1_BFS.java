@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class B17070파이브옮기기1 {
+public class B17070파이브옮기기1_BFS {
   static int[] dy = { 0, 1, 1 }; // 가로(0) ,세로(1), 대각선(2)
   static int[] dx = { 1, 0, 1 };
   static int N, map[][], cnt[][];
