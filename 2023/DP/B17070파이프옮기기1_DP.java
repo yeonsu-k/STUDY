@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class B17070파이브옮기기1_DP {
+public class B17070파이프옮기기1_DP {
   static int N, map[][], dp[][][];
 
   public static void main(String[] args) throws IOException {
