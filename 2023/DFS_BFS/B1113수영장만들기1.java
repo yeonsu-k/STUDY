@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class B1113수영장만들기 {
+public class B1113수영장만들기1 {
   static int[] dy = { -1, 0, 1, 0 }; // 상,우,하,좌
   static int[] dx = { 0, 1, 0, -1 };
   static int N, M, map[][];
@@ -22,17 +22,21 @@ public class B1113수영장만들기 {
     N = Integer.parseInt(st.nextToken());
     M = Integer.parseInt(st.nextToken());
     map = new int[N][M];
-    int max = Integer.MIN_VALUE;
+
+    int min = 9; // 수영장 최소 높이
+    int max = 1; // 수영장 최대 높이
+
     for (int i = 0; i < N; i++) {
       String str = br.readLine();
       for (int j = 0; j < M; j++) {
         map[i][j] = str.charAt(j) - '0';
+        min = Math.min(min, map[i][j]);
         max = Math.max(max, map[i][j]);
       }
     }
 
     int result = 0;
-    for (int poolNum = 1; poolNum < max; poolNum++) {
+    for (int poolNum = min; poolNum < max; poolNum++) {
       for (int y = 1; y < N - 1; y++) {
         for (int x = 1; x < M - 1; x++) {
           if (map[y][x] <= poolNum)
@@ -70,10 +74,7 @@ public class B1113수영장만들기 {
       }
     }
 
-    if (check)
-      return cnt;
-
-    return 0;
+    return check ? cnt : 0;
   }
 
 }
