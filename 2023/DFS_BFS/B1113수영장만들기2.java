@@ -22,21 +22,18 @@ public class B1113수영장만들기2 {
     N = Integer.parseInt(st.nextToken());
     M = Integer.parseInt(st.nextToken());
     map = new int[N + 2][M + 2];
-
-    int min = 9; // 수영장 최소 높이
     int max = 1; // 수영장 최대 높이
 
     for (int i = 1; i <= N; i++) {
       String str = br.readLine();
       for (int j = 1; j <= M; j++) {
         map[i][j] = str.charAt(j - 1) - '0';
-        min = Math.min(min, map[i][j]);
         max = Math.max(max, map[i][j]);
       }
     }
 
     int result = 0;
-    for (int poolNum = min; poolNum <= max; poolNum++) {
+    for (int poolNum = 2; poolNum <= max; poolNum++) {
       bfs(poolNum);
       for (int y = 1; y <= N; y++) {
         for (int x = 1; x <= M; x++) {
@@ -53,7 +50,7 @@ public class B1113수영장만들기2 {
 
   private static void bfs(int poolNum) {
     Queue<Pos> que = new LinkedList<>();
-    map[0][0]++;
+    map[0][0] = poolNum;
     que.add(new Pos(0, 0));
 
     while (!que.isEmpty()) {
