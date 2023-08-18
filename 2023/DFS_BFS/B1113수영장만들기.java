@@ -53,7 +53,6 @@ public class B1113수영장만들기 {
 
     while (!que.isEmpty()) {
       Pos pos = que.poll();
-
       for (int d = 0; d < 4; d++) {
         int ny = pos.y + dy[d];
         int nx = pos.x + dx[d];
@@ -66,7 +65,6 @@ public class B1113수영장만들기 {
         if (map[ny][nx] <= poolNum) {
           map[ny][nx]++; // 물을 1만큼 채워줌
           cnt++;
-
           que.add(new Pos(ny, nx));
         }
       }
