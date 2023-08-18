@@ -1,3 +1,5 @@
+package 순조부;
+
 import java.io.*;
 import java.util.*;
 
@@ -35,7 +37,8 @@ public class B16943숫자재배치 {
     }
 
     for (int i = 0; i < A.length; i++) {
-      if ((cnt == 0 && A[i] == 0) || visit[i]) continue;
+      if ((cnt == 0 && A[i] == 0) || visit[i])
+        continue;
       visit[i] = true;
       nCr(i + 1, cnt + 1, C * 10 + A[i], visit);
       visit[i] = false;
