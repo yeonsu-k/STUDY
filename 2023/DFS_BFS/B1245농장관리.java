@@ -49,7 +49,7 @@ public class B1245농장관리 {
       if (ny >= 0 && nx >= 0 && ny < N && nx < M && map[ny][nx] != 0) {
         if (map[ny][nx] > map[y][x])
           check = false;
-        if (!visited[ny][nx] & map[ny][nx] == map[y][x])
+        if (!visited[ny][nx] && map[ny][nx] == map[y][x])
           DFS(ny, nx);
       }
     }
