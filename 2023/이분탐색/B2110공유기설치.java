@@ -25,9 +25,10 @@ public class B2110공유기설치 {
       int backPos = house[0];
 
       for (int i = 1; i < house.length; i++) {
-        if ((house[i] - backPos) >= mid) {
+        int nowPos = house[i];
+        if (nowPos - backPos >= mid) {
           count++;
-          backPos = house[i];
+          backPos = nowPos;
         }
       }
 
