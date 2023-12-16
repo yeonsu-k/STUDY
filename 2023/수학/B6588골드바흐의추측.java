@@ -33,7 +33,7 @@ public class B6588골드바흐의추측 {
     int num = -1;
     while ((num = Integer.parseInt(br.readLine())) != 0) {
       boolean flag = false;
-      for (int i = 2; i <= num / 2; i++) {
+      for (int i = 3; i <= num / 2; i += 2) { // 홀수 소수의 값만 가능
         // 소수 판별
         if (!isPrime[i] && !isPrime[num - i]) {
           sb.append(num + " = " + i + " + " + (num - i) + "\n");
