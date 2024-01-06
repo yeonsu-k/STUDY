@@ -13,36 +13,32 @@ public class B1976여행가자_1 {
   public static void main(String[] args) throws IOException {
     // System.setIn(new FileInputStream("input.txt"));
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    StringTokenizer st;
 
     N = Integer.parseInt(br.readLine());
     M = Integer.parseInt(br.readLine());
     map = new boolean[N][N];
-    int[] plan = new int[M];
 
     // 방문 가능한 도시 입력 받기
     for (int i = 0; i < N; i++) {
-      st = new StringTokenizer(br.readLine());
+      String str = br.readLine();
       for (int j = 0; j < N; j++) {
-        if (Integer.parseInt(st.nextToken()) == 1) {
+        if ((str.charAt(2 * j) - '0') == 1) {
           map[i][j] = true;
         }
       }
     }
 
-    // 여행 계획 입력 받기
-    st = new StringTokenizer(br.readLine());
-    for (int i = 0; i < M; i++) {
-      plan[i] = Integer.parseInt(st.nextToken()) - 1;
-    }
-
-    // 처리
+    // 여행 가능 여부 확인
     boolean check = true;
-    for (int i = 0; i < M - 1; i++) {
-      if (!BFS(plan[i], plan[i + 1])) {
+    StringTokenizer st = new StringTokenizer(br.readLine());
+    int now = Integer.parseInt(st.nextToken()) - 1;
+    for (int i = 1; i < M; i++) {
+      int next = Integer.parseInt(st.nextToken()) - 1;
+      if (!BFS(now, next)) {
         check = false;
         break;
       }
+      now = next;
     }
 
     System.out.print(check ? "YES" : "NO");
