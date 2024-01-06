@@ -4,7 +4,7 @@ import java.util.*;
 /*
  * 그래프 
  * 유니온 파인드
- * union 연산
+ * union-find 연산
  */
 
 public class B1976여행가자_2 {
@@ -48,17 +48,17 @@ public class B1976여행가자_2 {
     System.out.print(check ? "YES" : "NO");
   }
 
-  private static int find(int x) {
-    if (x == parent[x]) // 배열 인덱스와 값이 같다면 해당 값 리턴
-      return x;
-    return parent[x] = find(parent[x]); // 배열의 값을 인덱스로 갖는 값 리턴
+  private static int find(int node) {
+    if (node == parent[node]) // 배열 인덱스와 값이 같다면 해당 값 리턴
+      return node;
+    return parent[node] = find(parent[node]); // 배열의 값을 인덱스로 갖는 값 리턴
   }
 
-  private static void union(int x, int y) {
-    x = find(x); // 최상위 노드 찾기
-    y = find(y);
-    if (x == y)
+  private static void union(int a, int b) {
+    a = find(a); // 최상위 노드 찾기
+    b = find(b);
+    if (a == b)
       return; // 같은 집합(이미 연결 되어 있음)
-    parent[y] = x;
+    parent[b] = a;
   }
 }
