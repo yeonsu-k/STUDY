@@ -49,7 +49,7 @@ public class B1976여행가자_2 {
   }
 
   private static int find(int x) {
-    if (parent[x] == x) // 배열 인덱스와 값이 같다면 해당 값 리턴
+    if (x == parent[x]) // 배열 인덱스와 값이 같다면 해당 값 리턴
       return x;
     return parent[x] = find(parent[x]); // 배열의 값을 인덱스로 갖는 값 리턴
   }
