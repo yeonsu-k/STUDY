@@ -1,6 +1,11 @@
 import java.io.*;
 import java.util.*;
 
+/*
+ * 그래프
+ * BFS
+ */
+
 public class B1976여행가자_1 {
   static int N, M;
   static boolean[][] map;
