@@ -9,13 +9,18 @@ import java.util.*;
 
 public class B10800컬러볼 {
 
-  static class Ball {
+  static class Ball implements Comparable<Ball> {
     int idx, color, size;
 
     Ball(int idx, int color, int size) {
       this.idx = idx;
       this.color = color;
       this.size = size;
+    }
+
+    @Override
+    public int compareTo(Ball o) {
+      return this.size - o.size;
     }
   }
 
@@ -25,48 +30,39 @@ public class B10800컬러볼 {
     StringBuilder sb = new StringBuilder();
 
     int N = Integer.parseInt(br.readLine());
-    Ball[] balls = new Ball[N];
+    ArrayList<Ball> balls = new ArrayList<>();
 
     for (int i = 0; i < N; i++) {
       StringTokenizer st = new StringTokenizer(br.readLine());
       int color = Integer.parseInt(st.nextToken()) - 1;
       int size = Integer.parseInt(st.nextToken());
-      balls[i] = new Ball(i, color, size);
+      balls.add(new Ball(i, color, size));
     }
 
     // 사이즈 크기로 정렬
-    Arrays.sort(balls, (o1, o2) -> {
-      if (o1.size == o2.size)
-        return o1.color - o2.color;
-      return o1.size - o2.size;
-    });
+    Collections.sort(balls);
 
     int total = 0; // 사이즈 누적합
+    int beforeIdx = 0; // 탐색하는 사이즈 이전 ball
     int[] colorSum = new int[N]; // 색상별 합
-    int[] sizeSum = new int[2001]; // 사이즈별 합
     int[] result = new int[N];
 
     for (int i = 0; i < N; i++) {
-      int idx = balls[i].idx;
-      int color = balls[i].color;
-      int size = balls[i].size;
+      Ball now = balls.get(i);
+      Ball before = balls.get(beforeIdx);
 
-      // 이전 공과 색상과 사이즈가 일치하면 이전과 같은 누적합으로 저장
-      if (i != 0 && color == balls[i - 1].color && size == balls[i - 1].size) {
-        result[idx] = result[balls[i - 1].idx];
-      } else {
-        result[idx] = total - colorSum[color] - sizeSum[size];
+      while (before.size < now.size) {
+        total += before.size;
+        colorSum[before.color] += before.size;
+        before = balls.get(++beforeIdx);
       }
-
-      total += size;
-      colorSum[color] += size;
-      sizeSum[size] += size;
+      result[now.idx] = total - colorSum[now.color];
     }
 
     for (int res : result) {
       sb.append(res).append('\n');
     }
 
-    System.out.print(sb.toString().trim());
+    System.out.print(sb);
   }
 }
