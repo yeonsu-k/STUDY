@@ -6,7 +6,7 @@ import java.util.*;
  * 비둘기집 원리
  */
 
-public class B20529완전탐색 {
+public class B20529가장가까운세사람의심리적거리 {
 
   public static void main(String[] args) throws IOException {
     // System.setIn(new FileInputStream("input.txt"));
